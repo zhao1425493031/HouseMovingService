@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>康泰医疗健康集团 - 专业医疗服务提供商</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f1c40f;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            background: #f1c40f;
+            color: #333;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: #f39c12;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #27ae60;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #27ae60;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+        
+        .departments {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+        
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .department-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .department-item h4 {
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">康泰医疗</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#services">服务项目</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>康泰医疗健康</h1>
+            <p>专注于提供高品质的医疗服务，致力于守护您的健康，让每个家庭都能享受优质的医疗资源</p>
+            <a href="#contact" class="cta-button">预约咨询</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2>关于我们</h2>
+        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+            康泰医疗健康集团成立于2012年，是一家专业的医疗服务提供商。
+            我们拥有先进的医疗设备和专业的医疗团队，致力于为患者提供全面、安全、高效的医疗服务。
+            秉承"以患者为中心"的服务理念，我们不断创新医疗技术，提升服务质量。
+        </p>
+    </section>
+
+    <section class="section" id="services">
+        <h2>核心服务</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>综合医疗</h3>
+                <p>提供内科、外科、妇产科、儿科等全面的医疗服务，配备先进的医疗设备和专业医师团队</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>健康体检</h3>
+                <p>提供全面的健康体检服务，包括常规体检、专项检查、健康评估等，帮助您了解身体状况</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h3>康复治疗</h3>
+                <p>提供专业的康复治疗服务，包括物理治疗、运动康复、心理康复等，帮助患者恢复健康</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="departments">
+        <div class="section">
+            <h2>重点科室</h2>
+            <div class="departments-grid">
+                <div class="department-item">
+                    <h4>内科</h4>
+                    <p>心血管、呼吸、消化、内分泌等</p>
+                </div>
+                <div class="department-item">
+                    <h4>外科</h4>
+                    <p>普外、骨科、神经外科、胸外科等</p>
+                </div>
+                <div class="department-item">
+                    <h4>妇产科</h4>
+                    <p>妇科、产科、计划生育等</p>
+                </div>
+                <div class="department-item">
+                    <h4>儿科</h4>
+                    <p>新生儿、儿童保健、儿童疾病等</p>
+                </div>
+                <div class="department-item">
+                    <h4>影像科</h4>
+                    <p>CT、MRI、超声、X光等</p>
+                </div>
+                <div class="department-item">
+                    <h4>检验科</h4>
+                    <p>生化、免疫、微生物、病理等</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="section">
+            <h2>医疗实力</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>12年</h3>
+                    <p>医疗经验</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>专业医师</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50万+</h3>
+                    <p>服务患者</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>患者满意度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>联系我们</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                欢迎咨询我们的医疗服务，我们将为您提供专业的医疗建议和预约服务
+            </p>
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+                <p><strong>地址：</strong>广州市天河区医疗健康产业园B座</p>
+                <p><strong>电话：</strong>400-666-6666</p>
+                <p><strong>邮箱：</strong>info@kangtai-health.com</p>
+                <p><strong>工作时间：</strong>周一至周日 8:00-22:00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 康泰医疗健康集团. 保留所有权利.</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦途観光ホテルグループ - 専門観光ホテルサービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #e74c3c;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #e74c3c;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        .destinations {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .destination-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .destination-item h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        .hotels {
+            background: white;
+            padding: 4rem 2rem;
+        }
+        
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .hotel-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .hotel-item h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">悦途観光</div>
+            <ul class="nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">会社概要</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>悦途観光ホテル</h1>
+            <p>専門的な観光ホテルサービスプロバイダーとして、忘れられない旅行体験を創造し、すべての旅行が素晴らしい思い出になるようにします</p>
+            <a href="#contact" class="cta-button">今すぐ予約</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2>会社概要</h2>
+        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+            悦途観光ホテルグループは2015年に設立され、専門的な観光ホテルサービスプロバイダーです。
+            私たちは豊富な観光資源と完璧なサービスシステムを擁し、観光客に高品質な観光体験と快適な宿泊サービスを提供することに努めています。
+            「旅行をより素晴らしくする」というサービス理念を堅持し、サービスモデルの革新とサービス品質の向上に努めています。
+        </p>
+    </section>
+
+    <section class="section" id="services">
+        <h2>コアサービス</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✈️</div>
+                <h3>観光サービス</h3>
+                <p>国内外の観光ルート企画、航空券予約、ビザ申請、ガイドサービスなどの包括的な観光サービスを提供します</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏨</div>
+                <h3>ホテル宿泊</h3>
+                <p>星付きホテル、ブティックホテル、リゾートなど多様な宿泊選択肢を提供し、様々なニーズの顧客を満たします</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>交通サービス</h3>
+                <p>空港送迎、チャーターサービス、レンタカーサービスなどの便利な交通ソリューションを提供します</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations">
+        <div class="section">
+            <h2>人気目的地</h2>
+            <div class="destinations-grid">
+                <div class="destination-item">
+                    <h4>国内旅行</h4>
+                    <p>三亜、麗江、張家界、九寨溝など</p>
+                </div>
+                <div class="destination-item">
+                    <h4>東南アジア</h4>
+                    <p>タイ、シンガポール、マレーシア、ベトナムなど</p>
+                </div>
+                <div class="destination-item">
+                    <h4>ヨーロッパ旅行</h4>
+                    <p>フランス、イタリア、スイス、ドイツなど</p>
+                </div>
+                <div class="destination-item">
+                    <h4>アメリカ旅行</h4>
+                    <p>アメリカ、カナダ、メキシコ、ブラジルなど</p>
+                </div>
+                <div class="destination-item">
+                    <h4>オセアニア</h4>
+                    <p>オーストラリア、ニュージーランド、フィジーなど</p>
+                </div>
+                <div class="destination-item">
+                    <h4>アフリカ旅行</h4>
+                    <p>エジプト、南アフリカ、ケニア、モロッコなど</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hotels">
+        <div class="section">
+            <h2>厳選ホテル</h2>
+            <div class="hotels-grid">
+                <div class="hotel-item">
+                    <h4>5つ星ホテル</h4>
+                    <p>ヒルトン、マリオット、インターコンチネンタルなどの国際的な有名ブランドホテル</p>
+                </div>
+                <div class="hotel-item">
+                    <h4>ブティックホテル</h4>
+                    <p>特色のある民宿、旅館、リゾート別荘などの個性的な宿泊施設</p>
+                </div>
+                <div class="hotel-item">
+                    <h4>リゾート</h4>
+                    <p>海辺のリゾート、山のリゾート、温泉リゾートなど</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="section">
+            <h2>企業力</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>9年</h3>
+                    <p>業界経験</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>提携ホテル</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100万人+</h3>
+                    <p>サービス観光客</p>
+                </div>
+                <div class="stat-item">
+                    <h3>96%</h3>
+                    <p>顧客満足度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>お問い合わせ</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                観光ホテルサービスについてのご相談を承ります。専門的な観光アドバイスと予約サービスをご提供いたします
+            </p>
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+                <p><strong>住所：</strong>杭州市西湖区観光ビルA棟</p>
+                <p><strong>電話：</strong>400-444-4444</p>
+                <p><strong>メール：</strong>info@yuetu-travel.com</p>
+                <p><strong>営業時間：</strong>月曜日〜日曜日 8:00-22:00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 悦途観光ホテルグループ. 全著作権所有.</p>
+    </footer>
+</body>
+</html> 

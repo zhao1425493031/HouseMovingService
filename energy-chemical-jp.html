@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>華能エネルギー化学グループ - 専門エネルギー化学サービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダースタイル */
+        header {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* メインコンテンツエリア */
+        main {
+            margin-top: 80px;
+        }
+
+        /* ヒーローエリア */
+        .hero {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #2d5a27;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* サービスエリア */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #ffd700;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 技術優位性エリア */
+        .technology {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-item h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tech-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* データ統計エリア */
+        .stats {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 連絡エリア */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #2d5a27;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #4a7c59;
+        }
+
+        /* フッター */
+        footer {
+            background: #2d5a27;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">華能エネルギー</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#technology">技術</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>華能エネルギー化学グループ</h1>
+                <p>専門的なエネルギー化学サービスプロバイダーとして、お客様にクリーンで効率的で持続可能なエネルギーソリューションを提供します</p>
+                <a href="#contact" class="cta-button">無料相談</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>コアサービス</h2>
+                    <p>お客様に包括的なエネルギー化学サービスソリューションを提供</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>⚡ 電力生産</h3>
+                        <p>火力発電、水力発電、風力発電、太陽光発電など、様々なクリーンエネルギー発電サービスを提供し、各地域の電力需要を満たします。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🛢️ 石油化学</h3>
+                        <p>石油精製、化学製品生産、新素材開発などの総合サービスを提供し、化学産業のアップグレードと発展を推進します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🌱 新エネルギー開発</h3>
+                        <p>風力、太陽光、バイオマスエネルギーなどの新エネルギープロジェクトの開発建設に特化し、グリーンエネルギー発展を推進します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏭 工業ガス</h3>
+                        <p>酸素、窒素、水素などの工業ガスの生産、貯蔵、輸送、販売サービスを提供します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🔋 蓄電技術</h3>
+                        <p>先進的な蓄電技術を研究開発し、電池蓄電、揚水発電などを含み、エネルギー利用効率を向上させます。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>♻️ 環境保護サービス</h3>
+                        <p>排ガス処理、排水処理、固形廃棄物処理などの環境保護サービスを提供し、クリーン生産と持続可能な発展を実現します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technology" id="technology">
+            <div class="container">
+                <div class="section-title">
+                    <h2>技術優位性</h2>
+                    <p>先進的な技術と設備を保有し、サービス品質と安全を確保</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h3>🔬 研究開発・イノベーション</h3>
+                        <p>国家級研究開発センターを保有し、研究開発・イノベーションに継続的に投資し、コア技術を掌握</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>🏗️ 先進設備</h3>
+                        <p>国際先進的な生産設備とプロセス技術を採用し、製品品質を確保</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>👨‍🔬 専門チーム</h3>
+                        <p>経験豊富な専門技術チームを保有し、専門的な技術サポートを提供</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>📊 スマート管理</h3>
+                        <p>スマート管理システムを活用し、生産プロセスの精密制御と最適化を実現</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="section-title">
+                    <h2>会社の実力</h2>
+                    <p>データで語る、私たちの専門能力</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>30+</h3>
+                        <p>年の業界経験</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>生産基地</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10000+</h3>
+                        <p>専門従業員</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>安全稼働率</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>お問い合わせ</h2>
+                    <p>お客様との協力を楽しみに、エネルギー化学の新しい未来を共に創造</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>連絡方法</h3>
+                        <p>📞 電話：400-777-9999</p>
+                        <p>📧 メール：info@huaneng.com</p>
+                        <p>📍 住所：北京市西城区華能ビル</p>
+                        <p>⏰ 営業時間：月曜日〜金曜日 8:00-18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="お名前" required>
+                        <input type="email" placeholder="メールアドレス" required>
+                        <input type="tel" placeholder="電話番号" required>
+                        <textarea placeholder="お問い合わせ内容" rows="4" required></textarea>
+                        <button type="submit">お問い合わせ送信</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 華能エネルギー化学グループ. 全著作権所有.</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人才汇人力资源集团 - 专业人力资源服务商</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* 主要内容区域 */
+        main {
+            margin-top: 80px;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+        }
+
+        /* 服务区域 */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #f39c12;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 服务优势区域 */
+        .advantages {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .adv-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .adv-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .adv-item h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .adv-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* 数据统计区域 */
+        .stats {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 联系区域 */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2980b9;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #3498db;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">人才汇</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#advantages">优势</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>人才汇人力资源集团</h1>
+                <p>专业的人力资源服务提供商，致力于为企业提供全方位的人力资源解决方案和人才服务</p>
+                <a href="#contact" class="cta-button">免费咨询</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心服务</h2>
+                    <p>为您提供全方位的人力资源服务解决方案</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>👥 招聘服务</h3>
+                        <p>提供人才招聘、猎头服务、校园招聘等专业招聘服务，帮助企业快速找到合适的人才。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📚 培训发展</h3>
+                        <p>提供员工培训、技能提升、领导力发展等培训服务，助力企业人才成长。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💰 薪酬福利</h3>
+                        <p>提供薪酬设计、福利规划、绩效考核等专业服务，优化企业薪酬体系。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏢 人事外包</h3>
+                        <p>提供人事代理、社保代缴、档案管理等外包服务，降低企业运营成本。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🔍 背景调查</h3>
+                        <p>提供员工背景调查、学历验证、工作经历核实等专业服务。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📊 人力资源咨询</h3>
+                        <p>提供组织架构设计、流程优化、制度建立等人力资源咨询服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages" id="advantages">
+            <div class="container">
+                <div class="section-title">
+                    <h2>服务优势</h2>
+                    <p>专业团队，优质服务，为企业创造价值</p>
+                </div>
+                <div class="adv-grid">
+                    <div class="adv-item">
+                        <h3>👨‍💼 专业团队</h3>
+                        <p>拥有经验丰富的人力资源专家团队，提供专业服务</p>
+                    </div>
+                    <div class="adv-item">
+                        <h3>🌍 全国网络</h3>
+                        <p>覆盖全国的服务网络，快速响应客户需求</p>
+                    </div>
+                    <div class="adv-item">
+                        <h3>⚡ 高效服务</h3>
+                        <p>标准化服务流程，确保服务质量和效率</p>
+                    </div>
+                    <div class="adv-item">
+                        <h3>🤝 长期合作</h3>
+                        <p>注重客户关系维护，建立长期合作伙伴关系</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="section-title">
+                    <h2>公司实力</h2>
+                    <p>用数据说话，展现我们的专业能力</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>18+</h3>
+                        <p>年行业经验</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>专业顾问</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10000+</h3>
+                        <p>服务企业</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>96%</h3>
+                        <p>客户满意度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>联系我们</h2>
+                    <p>期待与您的合作，共创人力资源新未来</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>联系方式</h3>
+                        <p>📞 电话：400-666-7777</p>
+                        <p>📧 邮箱：info@rencaihui.com</p>
+                        <p>📍 地址：北京市朝阳区人才汇大厦</p>
+                        <p>⏰ 工作时间：周一至周五 9:00-18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="您的姓名" required>
+                        <input type="email" placeholder="邮箱地址" required>
+                        <input type="tel" placeholder="联系电话" required>
+                        <textarea placeholder="咨询内容" rows="4" required></textarea>
+                        <button type="submit">提交咨询</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 人才汇人力资源集团. 保留所有权利.</p>
+    </footer>
+</body>
+</html> 

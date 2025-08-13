@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>速達物流運輸グループ - 専門物流運輸サービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダースタイル */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* メインコンテンツエリア */
+        main {
+            margin-top: 80px;
+        }
+
+        /* ヒーローエリア */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        /* サービスエリア */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* サービスネットワークエリア */
+        .network {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .network-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .network-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .network-item h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .network-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* データ統計エリア */
+        .stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 連絡エリア */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #e55a2b;
+        }
+
+        /* フッター */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">速達物流</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#network">ネットワーク</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>速達物流運輸グループ</h1>
+                <p>専門的な物流運輸サービスプロバイダーとして、お客様に効率的で安全で信頼性の高い物流ソリューションを提供します</p>
+                <a href="#contact" class="cta-button">無料相談</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>コアサービス</h2>
+                    <p>お客様に包括的な物流運輸サービスソリューションを提供</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🚚 道路運輸</h3>
+                        <p>全国規模の道路運輸サービスを提供し、車両輸送、小口輸送、宅配便などを含み、貨物の安全で定時の到着を確保します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🚢 海上サービス</h3>
+                        <p>国際海上サービスを提供し、コンテナ輸送、バルク貨物輸送、危険物輸送などを含み、世界の主要港をカバーします。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>✈️ 航空サービス</h3>
+                        <p>国際航空サービスを提供し、高価値で時間性の強い貨物に適した、世界の各地に貨物を迅速かつ安全に配送します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🚂 鉄道運輸</h3>
+                        <p>鉄道運輸サービスを提供し、国内鉄道貨物輸送、中欧班列などを含み、コスト効率が高く、大量貨物輸送に適しています。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📦 倉庫配送</h3>
+                        <p>専門的な倉庫管理と配送サービスを提供し、貨物の保管、仕分け、包装、配送などのワンストップサービスを含みます。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🔧 サプライチェーン管理</h3>
+                        <p>完全なサプライチェーン管理サービスを提供し、調達、生産から配送まで、サプライチェーンプロセス全体を最適化します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="network" id="network">
+            <div class="container">
+                <div class="section-title">
+                    <h2>サービスネットワーク</h2>
+                    <p>全国をカバーし、世界とつながり、お客様に便利な物流サービスを提供</p>
+                </div>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <h3>🌍 グローバルカバレッジ</h3>
+                        <p>サービスネットワークは世界200以上の国と地域をカバーし、お客様にグローバル物流ソリューションを提供</p>
+                    </div>
+                    <div class="network-item">
+                        <h3>🇨🇳 全国ネットワーク</h3>
+                        <p>全国に50以上の配送センター、300以上のサービス拠点を設置し、サービスに死角がないことを確保</p>
+                    </div>
+                    <div class="network-item">
+                        <h3>⚡ 迅速な対応</h3>
+                        <p>24時間カスタマーサービスホットライン、専門チームがお客様のニーズに迅速に対応し、タイムリーなサービスを提供</p>
+                    </div>
+                    <div class="network-item">
+                        <h3>🔒 安全保障</h3>
+                        <p>貨物の全行程保険、GPSリアルタイム追跡により、貨物輸送の安全と信頼性を確保</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="section-title">
+                    <h2>会社の実力</h2>
+                    <p>データで語る、私たちの専門能力</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>年の業界経験</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>輸送車両</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50000+</h3>
+                        <p>満足したお客様</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.5%</h3>
+                        <p>定時率</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>お問い合わせ</h2>
+                    <p>お客様との協力を楽しみに、物流運輸の新しい未来を共に創造</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>連絡方法</h3>
+                        <p>📞 電話：400-666-8888</p>
+                        <p>📧 メール：info@suda.com</p>
+                        <p>📍 住所：上海市浦東新区速達物流ビル</p>
+                        <p>⏰ 営業時間：24時間サービス</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="お名前" required>
+                        <input type="email" placeholder="メールアドレス" required>
+                        <input type="tel" placeholder="電話番号" required>
+                        <textarea placeholder="お問い合わせ内容" rows="4" required></textarea>
+                        <button type="submit">お問い合わせ送信</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 速達物流運輸グループ. 全著作権所有.</p>
+    </footer>
+</body>
+</html> 

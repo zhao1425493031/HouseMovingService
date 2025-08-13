@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星光媒体娱乐集团 - 专业媒体娱乐服务商</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* 主要内容区域 */
+        main {
+            margin-top: 80px;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+        }
+
+        /* 服务区域 */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #f39c12;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 作品展示区域 */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #8e44ad;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 数据统计区域 */
+        .stats {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 联系区域 */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #8e44ad;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #9b59b6;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #8e44ad;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">星光媒体</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#portfolio">作品</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>星光媒体娱乐集团</h1>
+                <p>专业的媒体娱乐服务提供商，致力于为客户创造精彩纷呈的娱乐体验和传播价值</p>
+                <a href="#contact" class="cta-button">免费咨询</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心服务</h2>
+                    <p>为您提供全方位的媒体娱乐服务解决方案</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🎬 影视制作</h3>
+                        <p>提供电影、电视剧、纪录片等影视作品的策划、制作、发行等全流程服务，打造精品内容。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📺 电视节目</h3>
+                        <p>制作各类电视节目，包括综艺节目、访谈节目、新闻节目等，满足不同观众需求。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎵 音乐制作</h3>
+                        <p>提供音乐创作、录制、制作、发行等专业服务，助力音乐人实现梦想。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎭 演艺活动</h3>
+                        <p>策划组织各类演艺活动，包括演唱会、音乐会、戏剧演出等，创造难忘体验。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📱 数字媒体</h3>
+                        <p>提供新媒体内容制作、短视频制作、直播服务等，适应数字化时代需求。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎨 创意设计</h3>
+                        <p>提供品牌设计、视觉设计、创意策划等服务，提升品牌价值和影响力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选作品</h2>
+                    <p>展示我们的优秀作品和成功案例</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎬</div>
+                        <div class="portfolio-content">
+                            <h3>《星光之路》</h3>
+                            <p>年度热播电视剧，收视率突破3%，获得多项大奖</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎵</div>
+                        <div class="portfolio-content">
+                            <h3>《梦想之声》</h3>
+                            <p>现象级音乐选秀节目，全网播放量超过50亿</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎭</div>
+                        <div class="portfolio-content">
+                            <h3>《城市之光》</h3>
+                            <p>大型户外音乐节，吸引观众超过10万人</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">📱</div>
+                        <div class="portfolio-content">
+                            <h3>《每日一刻》</h3>
+                            <p>短视频系列，全网粉丝超过1000万</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="section-title">
+                    <h2>公司实力</h2>
+                    <p>用数据说话，展现我们的专业能力</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>年行业经验</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>成功项目</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>合作客户</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99%</h3>
+                        <p>客户满意度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>联系我们</h2>
+                    <p>期待与您的合作，共创媒体娱乐新未来</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>联系方式</h3>
+                        <p>📞 电话：400-555-7777</p>
+                        <p>📧 邮箱：info@xingguang.com</p>
+                        <p>📍 地址：北京市朝阳区星光大厦</p>
+                        <p>⏰ 工作时间：周一至周五 9:00-18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="您的姓名" required>
+                        <input type="email" placeholder="邮箱地址" required>
+                        <input type="tel" placeholder="联系电话" required>
+                        <textarea placeholder="咨询内容" rows="4" required></textarea>
+                        <button type="submit">提交咨询</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 星光媒体娱乐集团. 保留所有权利.</p>
+    </footer>
+</body>
+</html> 

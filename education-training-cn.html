@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博学教育集团 - 专业教育培训服务商</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523240798131-33771a7c0e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8e44ad;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #8e44ad;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+        
+        .courses {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .course-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .course-item h4 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: #8e44ad;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">博学教育</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#services">服务项目</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>博学教育集团</h1>
+            <p>专注于提供高品质的教育培训服务，助力学员实现梦想，成就美好未来</p>
+            <a href="#contact" class="cta-button">免费试听</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2>关于我们</h2>
+        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+            博学教育集团成立于2010年，是一家专业的教育培训机构。
+            我们拥有资深的教师团队和先进的教学理念，致力于为学员提供全面、系统、高效的教育服务。
+            秉承"因材施教、因势利导"的教育理念，我们帮助每个学员找到适合自己的学习路径。
+        </p>
+    </section>
+
+    <section class="section" id="services">
+        <h2>核心服务</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>学科辅导</h3>
+                <p>提供语文、数学、英语、物理、化学等各学科的个性化辅导，帮助学生提高学习成绩</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>考试培训</h3>
+                <p>针对中考、高考、考研、公务员考试等各类考试提供专业的培训课程和指导</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌍</div>
+                <h3>语言培训</h3>
+                <p>提供英语、日语、韩语等多种语言的培训课程，帮助学员掌握流利的外语交流能力</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses">
+        <div class="section">
+            <h2>热门课程</h2>
+            <div class="courses-grid">
+                <div class="course-item">
+                    <h4>高考冲刺班</h4>
+                    <p>针对高三学生的全面复习课程</p>
+                </div>
+                <div class="course-item">
+                    <h4>英语口语班</h4>
+                    <p>提升英语口语表达能力的专项课程</p>
+                </div>
+                <div class="course-item">
+                    <h4>数学思维班</h4>
+                    <p>培养数学思维和解题能力的特色课程</p>
+                </div>
+                <div class="course-item">
+                    <h4>考研辅导班</h4>
+                    <p>为考研学生提供专业的备考指导</p>
+                </div>
+                <div class="course-item">
+                    <h4>编程入门班</h4>
+                    <p>零基础学习编程的入门课程</p>
+                </div>
+                <div class="course-item">
+                    <h4>艺术特长班</h4>
+                    <p>音乐、美术、舞蹈等艺术类培训</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="section">
+            <h2>教育实力</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>14年</h3>
+                    <p>教育经验</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>专业教师</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10万+</h3>
+                    <p>培训学员</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>学员满意度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>联系我们</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                欢迎咨询我们的教育培训服务，我们将为您提供专业的课程介绍和试听安排
+            </p>
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+                <p><strong>地址：</strong>深圳市南山区教育科技园C座</p>
+                <p><strong>电话：</strong>400-555-5555</p>
+                <p><strong>邮箱：</strong>info@boxue-edu.com</p>
+                <p><strong>工作时间：</strong>周一至周日 8:00-21:00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 博学教育集团. 保留所有权利.</p>
+    </footer>
+</body>
+</html> 

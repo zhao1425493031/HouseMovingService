@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星光メディアエンターテイメントグループ - 専門メディアエンターテイメントサービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ヘッダースタイル */
+        header {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* メインコンテンツエリア */
+        main {
+            margin-top: 80px;
+        }
+
+        /* ヒーローエリア */
+        .hero {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+        }
+
+        /* サービスエリア */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #f39c12;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 作品展示エリア */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #8e44ad;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* データ統計エリア */
+        .stats {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 連絡エリア */
+        .contact {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #8e44ad;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #9b59b6;
+        }
+
+        /* フッター */
+        footer {
+            background: #8e44ad;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">星光メディア</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#portfolio">作品</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>星光メディアエンターテイメントグループ</h1>
+                <p>専門的なメディアエンターテイメントサービスプロバイダーとして、お客様に素晴らしいエンターテイメント体験とコミュニケーション価値を創造します</p>
+                <a href="#contact" class="cta-button">無料相談</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>コアサービス</h2>
+                    <p>お客様に包括的なメディアエンターテイメントサービスソリューションを提供</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🎬 映像制作</h3>
+                        <p>映画、テレビドラマ、ドキュメンタリーなどの映像作品の企画、制作、配給などの全プロセスサービスを提供し、精品コンテンツを制作します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📺 テレビ番組</h3>
+                        <p>バラエティ番組、トーク番組、ニュース番組など、様々なテレビ番組を制作し、異なる視聴者のニーズを満たします。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎵 音楽制作</h3>
+                        <p>音楽創作、録音、制作、配給などの専門サービスを提供し、音楽家の夢の実現をサポートします。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎭 芸能イベント</h3>
+                        <p>コンサート、音楽会、演劇公演など、様々な芸能イベントを企画・組織し、忘れられない体験を創造します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📱 デジタルメディア</h3>
+                        <p>ニューメディアコンテンツ制作、ショート動画制作、ライブ配信サービスなどを提供し、デジタル時代のニーズに対応します。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎨 クリエイティブデザイン</h3>
+                        <p>ブランドデザイン、ビジュアルデザイン、クリエイティブ企画などのサービスを提供し、ブランド価値と影響力を向上させます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>選ばれた作品</h2>
+                    <p>私たちの優秀な作品と成功事例を展示</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎬</div>
+                        <div class="portfolio-content">
+                            <h3>「星光の道」</h3>
+                            <p>年間人気テレビドラマ、視聴率3%を突破し、複数の賞を受賞</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎵</div>
+                        <div class="portfolio-content">
+                            <h3>「夢の声」</h3>
+                            <p>現象級音楽オーディション番組、ネット再生回数50億を超過</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎭</div>
+                        <div class="portfolio-content">
+                            <h3>「都市の光」</h3>
+                            <p>大型アウトドア音楽祭、観客10万人以上を集める</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">📱</div>
+                        <div class="portfolio-content">
+                            <h3>「毎日一刻」</h3>
+                            <p>ショート動画シリーズ、ネットフォロワー1000万を超過</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="section-title">
+                    <h2>会社の実力</h2>
+                    <p>データで語る、私たちの専門能力</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>年の業界経験</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>成功プロジェクト</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000+</h3>
+                        <p>協力クライアント</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99%</h3>
+                        <p>お客様満足度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>お問い合わせ</h2>
+                    <p>お客様との協力を楽しみに、メディアエンターテイメントの新しい未来を共に創造</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>連絡方法</h3>
+                        <p>📞 電話：400-555-7777</p>
+                        <p>📧 メール：info@xingguang.com</p>
+                        <p>📍 住所：北京市朝陽区星光ビル</p>
+                        <p>⏰ 営業時間：月曜日〜金曜日 9:00-18:00</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="お名前" required>
+                        <input type="email" placeholder="メールアドレス" required>
+                        <input type="tel" placeholder="電話番号" required>
+                        <textarea placeholder="お問い合わせ内容" rows="4" required></textarea>
+                        <button type="submit">お問い合わせ送信</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 星光メディアエンターテイメントグループ. 全著作権所有.</p>
+    </footer>
+</body>
+</html> 
